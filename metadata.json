@@ -1,0 +1,6 @@
+{
+  "name": "SETEE CONCEPTS",
+  "description": "Unlock premium web-based AI productivity. Get instant access to powerful AI tools with simple setup, working on phone and PC.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
