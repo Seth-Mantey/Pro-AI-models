@@ -67,7 +67,7 @@ export default function Header() {
               onClick={() => scrollToSection("flyer")}
               className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer font-bold text-yellow-500"
             >
-              Package Flyer
+              PRO Version
             </button>
             <button
               onClick={() => scrollToSection("what-you-get")}
@@ -134,7 +134,7 @@ export default function Header() {
             onClick={() => scrollToSection("flyer")}
             className="text-left py-2 px-3 rounded-lg text-yellow-500 font-bold hover:bg-white/5 transition-all"
           >
-            Package Flyer
+            PRO Version
           </button>
           <button
             onClick={() => scrollToSection("what-you-get")}
