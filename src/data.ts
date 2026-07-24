@@ -7,9 +7,13 @@ import { Feature, Benefit, Step, Testimonial, FAQItem } from "./types";
 
 export const WHATSAPP_NUMBER = "233549535810";
 export const WHATSAPP_PREFILLED_MESSAGE = 
-  "Hi! I've gone through everything on your website and I'm interested in getting access. Please guide me through the payment process.";
+  "Hi, I've gone through everything on your landing page and I'm ready to make payment.";
 
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_PREFILLED_MESSAGE)}`;
+export const GHANA_WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_PREFILLED_MESSAGE)}`;
+export const INTERNATIONAL_PAYSTACK_URL = "https://paystack.shop/pay/setee-concepts";
+export const WHATSAPP_DIRECT_URL = GHANA_WHATSAPP_URL;
+
+export const WHATSAPP_URL = GHANA_WHATSAPP_URL;
 
 export const FEATURES: Feature[] = [
   {

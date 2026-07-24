@@ -4,12 +4,13 @@
  */
 
 import { useState, useEffect } from "react";
-import { WHATSAPP_URL } from "../data";
 import LucideIcon from "./LucideIcon";
+import { useAccessModal } from "../context/AccessModalContext";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { openAccessModal } = useAccessModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -103,15 +104,13 @@ export default function Header() {
 
           {/* Right Button */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-black text-sm font-semibold transition-all shadow-md shadow-yellow-500/10 hover:shadow-yellow-500/20 active:scale-95"
+            <button
+              onClick={openAccessModal}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-black text-sm font-semibold transition-all shadow-md shadow-yellow-500/10 hover:shadow-yellow-500/20 active:scale-95 cursor-pointer"
             >
               <LucideIcon name="Mail" size={16} />
               <span>Get Access</span>
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -167,15 +166,16 @@ export default function Header() {
             FAQ
           </button>
           <hr className="border-white/5 my-2" />
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black font-semibold transition-all shadow-md"
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              openAccessModal();
+            }}
+            className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black font-semibold transition-all shadow-md cursor-pointer"
           >
             <LucideIcon name="Mail" size={18} />
-            <span>Continue on WhatsApp</span>
-          </a>
+            <span>Get Access</span>
+          </button>
         </div>
       )}
     </header>

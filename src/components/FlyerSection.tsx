@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { WHATSAPP_URL } from "../data";
+import { useAccessModal } from "../context/AccessModalContext";
 import { 
   Sparkles, 
   ShieldCheck, 
@@ -24,6 +24,7 @@ import {
 
 export default function FlyerSection() {
   const [isBookOpen, setIsBookOpen] = useState(false);
+  const { openAccessModal } = useAccessModal();
   const tools = [
     {
       name: "ChatGPT PRO",
@@ -85,15 +86,12 @@ export default function FlyerSection() {
           {/* HUGE YELLOW PRICE BADGE (matches the physical flyer) */}
           <div className="absolute top-6 right-6 lg:top-8 lg:right-12 z-20 flex flex-col items-center justify-center bg-yellow-400 text-black w-28 h-28 sm:w-36 sm:h-36 rounded-full font-display border-4 border-black shadow-2xl transform rotate-12 hover:rotate-6 transition-transform duration-300 select-none">
             <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-black/80">ONLY</span>
-            <span className="text-2xl sm:text-4xl font-black leading-none flex items-start">
+            <span className="text-3xl sm:text-5xl font-black leading-none flex items-start">
               1.99
-              <span className="text-sm sm:text-lg font-bold ml-0.5">$</span>
+              <span className="text-base sm:text-xl font-bold ml-0.5">$</span>
             </span>
-            <div className="text-[11px] sm:text-sm font-extrabold tracking-tight mt-0.5 text-black/90">
-              or <span className="font-black text-xs sm:text-base">GH₵ 25</span>
-            </div>
-            <div className="w-12 sm:w-16 h-px bg-black/35 my-0.5 sm:my-1" />
-            <span className="text-[8px] sm:text-[9px] font-bold uppercase tracking-wider leading-none">ONE TIME</span>
+            <div className="w-10 sm:w-12 h-0.5 bg-black/40 my-0.5 sm:my-1" />
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest">ONE TIME</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch mt-8 lg:mt-4">
@@ -436,20 +434,18 @@ export default function FlyerSection() {
             viewport={{ once: true }}
             className="flex flex-col items-center gap-5"
           >
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-10 py-4.5 sm:py-5 rounded-2xl bg-yellow-500 hover:bg-yellow-400 text-black text-sm sm:text-base lg:text-lg font-black tracking-tight transition-all shadow-xl shadow-yellow-500/10 hover:shadow-yellow-500/25 active:scale-[0.98] text-center shrink-0 select-none border border-yellow-400/50"
+            <button
+              onClick={openAccessModal}
+              className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-10 py-4.5 sm:py-5 rounded-2xl bg-yellow-500 hover:bg-yellow-400 text-black text-sm sm:text-base lg:text-lg font-black tracking-tight transition-all shadow-xl shadow-yellow-500/10 hover:shadow-yellow-500/25 active:scale-[0.98] text-center shrink-0 select-none border border-yellow-400/50 cursor-pointer"
             >
               <MessageCircle size={20} fill="currentColor" className="shrink-0" />
               <span className="whitespace-nowrap uppercase">GET UNLIMITED PRO ACCESS NOW!</span>
               <ArrowRight size={20} className="shrink-0 group-hover:translate-x-1 transition-transform" />
-            </a>
+            </button>
 
             <div className="text-gray-400 text-sm font-semibold tracking-wide flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/5">
               <span>ALL IN ONE. ALL FOR</span>
-              <span className="text-yellow-400 font-black text-base">$1.99 / GH₵ 25!</span>
+              <span className="text-yellow-400 font-black text-base">$1.99!</span>
             </div>
           </motion.div>
         </div>
