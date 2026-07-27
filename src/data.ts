@@ -6,7 +6,10 @@
 import { Feature, Benefit, Step, Testimonial, FAQItem } from "./types";
 
 export const WHATSAPP_NUMBER = "233549535810";
-export const WHATSAPP_URL = "https://wa.link/91pwof";
+export const WHATSAPP_PREFILLED_MESSAGE = 
+  "Hi SETEE CONCEPTS 👋,\n\nI've gone through everything on your landing page and I'm ready to get access.";
+
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_PREFILLED_MESSAGE)}`;
 export const GHANA_WHATSAPP_URL = WHATSAPP_URL;
 export const WHATSAPP_DIRECT_URL = WHATSAPP_URL;
 

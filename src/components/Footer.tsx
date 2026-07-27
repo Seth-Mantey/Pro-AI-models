@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { WHATSAPP_URL } from "../data";
 import LucideIcon from "./LucideIcon";
+import { trackGetAccessClick } from "../analytics";
 
 export default function Footer() {
   const [activeModal, setActiveModal] = useState<"privacy" | "terms" | "payment" | null>(null);
@@ -53,6 +54,7 @@ export default function Footer() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackGetAccessClick("footer")}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black text-sm sm:text-base font-extrabold tracking-tight transition-all shadow-lg shadow-yellow-500/10 hover:shadow-yellow-500/25 active:scale-[0.98] text-center shrink-0 select-none border border-yellow-400/50 cursor-pointer"
               >
                 <MessageCircle size={18} fill="currentColor" className="shrink-0" />

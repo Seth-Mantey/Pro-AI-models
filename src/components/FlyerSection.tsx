@@ -6,6 +6,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { WHATSAPP_URL } from "../data";
+import { trackGetAccessClick } from "../analytics";
 import { 
   Sparkles, 
   ShieldCheck, 
@@ -437,6 +438,7 @@ export default function FlyerSection() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackGetAccessClick("flyer_section")}
               className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-10 py-4.5 sm:py-5 rounded-2xl bg-yellow-500 hover:bg-yellow-400 text-black text-sm sm:text-base lg:text-lg font-black tracking-tight transition-all shadow-xl shadow-yellow-500/10 hover:shadow-yellow-500/25 active:scale-[0.98] text-center shrink-0 select-none border border-yellow-400/50 cursor-pointer"
             >
               <MessageCircle size={20} fill="currentColor" className="shrink-0" />

@@ -6,6 +6,7 @@
 import { motion } from "motion/react";
 import LucideIcon from "./LucideIcon";
 import { WHATSAPP_URL } from "../data";
+import { trackGetAccessClick } from "../analytics";
 
 export default function Comparison() {
   const oldPlatformCons = [
@@ -135,6 +136,7 @@ export default function Comparison() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackGetAccessClick("comparison_section")}
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-black text-xs font-bold transition-all active:scale-95 cursor-pointer"
               >
                 <span>Check Offer</span>

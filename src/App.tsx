@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useEffect } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import FlyerSection from "./components/FlyerSection";
@@ -13,7 +14,13 @@ import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import StickyCTA from "./components/StickyCTA";
+import { initAnalytics } from "./analytics";
+
 export default function App() {
+  useEffect(() => {
+    initAnalytics();
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0A0D14] text-white selection:bg-yellow-500/30 selection:text-yellow-200">
       {/* Premium Header */}

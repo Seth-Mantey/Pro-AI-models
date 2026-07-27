@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { WHATSAPP_URL } from "../data";
+import { trackGetAccessClick } from "../analytics";
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,6 +39,7 @@ export default function StickyCTA() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackGetAccessClick("sticky_cta")}
             className="w-full flex items-center justify-between gap-4 px-5 py-3.5 rounded-2xl bg-yellow-500 text-black shadow-[0_12px_40px_-8px_rgba(234,179,8,0.35)] active:scale-[0.97] transition-all border border-yellow-400 select-none animate-none cursor-pointer"
           >
             <div className="flex items-center gap-2.5 text-left">
