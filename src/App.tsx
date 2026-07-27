@@ -13,43 +13,39 @@ import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import StickyCTA from "./components/StickyCTA";
-import { AccessModalProvider } from "./context/AccessModalContext";
-
 export default function App() {
   return (
-    <AccessModalProvider>
-      <div className="min-h-screen bg-[#0A0D14] text-white selection:bg-yellow-500/30 selection:text-yellow-200">
-        {/* Premium Header */}
-        <Header />
+    <div className="min-h-screen bg-[#0A0D14] text-white selection:bg-yellow-500/30 selection:text-yellow-200">
+      {/* Premium Header */}
+      <Header />
 
-        {/* Hero Section */}
-        <Hero />
+      {/* Hero Section */}
+      <Hero />
 
-        {/* Interactive Digital Package Flyer */}
-        <FlyerSection />
+      {/* Interactive Digital Package Flyer */}
+      <FlyerSection />
 
-        {/* Key Benefits and What's Included */}
-        <Features />
+      {/* Key Benefits and What's Included */}
+      <Features />
 
-        {/* Simple Onboarding Timeline */}
-        <HowItWorks />
+      {/* Simple Onboarding Timeline */}
+      <HowItWorks />
 
-        {/* High-Contrast Cost Comparison */}
-        <Comparison />
+      {/* High-Contrast Cost Comparison */}
+      <Comparison />
 
-        {/* Verified Client Reviews */}
-        <Testimonials />
+      {/* Verified Client Reviews */}
+      <Testimonials />
 
-        {/* Collapsible FAQ Section */}
-        <FAQ />
+      {/* Collapsible FAQ Section */}
+      <FAQ />
 
-        {/* Footer & Final Closing Conversion Block */}
-        <Footer />
+      {/* Footer & Final Closing Conversion Block */}
+      <Footer />
 
-        {/* Mobile-Only Floating Action Sticky Bar */}
-        <StickyCTA />
-      </div>
-    </AccessModalProvider>
+      {/* Mobile-Only Floating Action Sticky Bar */}
+      <StickyCTA />
+    </div>
   );
 }
 

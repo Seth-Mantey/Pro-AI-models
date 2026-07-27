@@ -5,10 +5,9 @@
 
 import { motion } from "motion/react";
 import LucideIcon from "./LucideIcon";
-import { useAccessModal } from "../context/AccessModalContext";
+import { WHATSAPP_URL } from "../data";
 
 export default function Comparison() {
-  const { openAccessModal } = useAccessModal();
   const oldPlatformCons = [
     "Requires complex credit card authorizations",
     "Requires high monthly subscription fees (adds up to $60+/month)",
@@ -132,13 +131,15 @@ export default function Comparison() {
                   One Simple Payment
                 </span>
               </div>
-              <button
-                onClick={openAccessModal}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-black text-xs font-bold transition-all active:scale-95 cursor-pointer"
               >
                 <span>Check Offer</span>
                 <LucideIcon name="ArrowRight" size={12} />
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>

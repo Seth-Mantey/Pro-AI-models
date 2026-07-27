@@ -6,11 +6,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle, ArrowRight } from "lucide-react";
-import { useAccessModal } from "../context/AccessModalContext";
+import { WHATSAPP_URL } from "../data";
 
 export default function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
-  const { openAccessModal } = useAccessModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,8 +34,10 @@ export default function StickyCTA() {
           transition={{ type: "spring", stiffness: 350, damping: 26 }}
           className="fixed bottom-4 left-4 right-4 z-40 md:hidden max-w-sm mx-auto"
         >
-          <button
-            onClick={openAccessModal}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full flex items-center justify-between gap-4 px-5 py-3.5 rounded-2xl bg-yellow-500 text-black shadow-[0_12px_40px_-8px_rgba(234,179,8,0.35)] active:scale-[0.97] transition-all border border-yellow-400 select-none animate-none cursor-pointer"
           >
             <div className="flex items-center gap-2.5 text-left">
@@ -52,7 +53,7 @@ export default function StickyCTA() {
               <span>Get Access</span>
               <ArrowRight size={12} strokeWidth={3} />
             </div>
-          </button>
+          </a>
         </motion.div>
       )}
     </AnimatePresence>

@@ -5,7 +5,7 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { useAccessModal } from "../context/AccessModalContext";
+import { WHATSAPP_URL } from "../data";
 import { 
   Sparkles, 
   ShieldCheck, 
@@ -24,7 +24,6 @@ import {
 
 export default function FlyerSection() {
   const [isBookOpen, setIsBookOpen] = useState(false);
-  const { openAccessModal } = useAccessModal();
   const tools = [
     {
       name: "ChatGPT PRO",
@@ -434,14 +433,16 @@ export default function FlyerSection() {
             viewport={{ once: true }}
             className="flex flex-col items-center gap-5"
           >
-            <button
-              onClick={openAccessModal}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-10 py-4.5 sm:py-5 rounded-2xl bg-yellow-500 hover:bg-yellow-400 text-black text-sm sm:text-base lg:text-lg font-black tracking-tight transition-all shadow-xl shadow-yellow-500/10 hover:shadow-yellow-500/25 active:scale-[0.98] text-center shrink-0 select-none border border-yellow-400/50 cursor-pointer"
             >
               <MessageCircle size={20} fill="currentColor" className="shrink-0" />
               <span className="whitespace-nowrap uppercase">GET UNLIMITED PRO ACCESS NOW!</span>
               <ArrowRight size={20} className="shrink-0 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
 
             <div className="text-gray-400 text-sm font-semibold tracking-wide flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/5">
               <span>ALL IN ONE. ALL FOR</span>

@@ -5,12 +5,11 @@
 
 import { useState, useEffect } from "react";
 import LucideIcon from "./LucideIcon";
-import { useAccessModal } from "../context/AccessModalContext";
+import { WHATSAPP_URL } from "../data";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { openAccessModal } = useAccessModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,13 +103,15 @@ export default function Header() {
 
           {/* Right Button */}
           <div className="hidden md:flex items-center gap-4">
-            <button
-              onClick={openAccessModal}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-yellow-500 hover:bg-yellow-400 text-black text-sm font-semibold transition-all shadow-md shadow-yellow-500/10 hover:shadow-yellow-500/20 active:scale-95 cursor-pointer"
             >
               <LucideIcon name="Mail" size={16} />
               <span>Get Access</span>
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -166,16 +167,16 @@ export default function Header() {
             FAQ
           </button>
           <hr className="border-white/5 my-2" />
-          <button
-            onClick={() => {
-              setIsOpen(false);
-              openAccessModal();
-            }}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsOpen(false)}
             className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black font-semibold transition-all shadow-md cursor-pointer"
           >
             <LucideIcon name="Mail" size={18} />
             <span>Get Access</span>
-          </button>
+          </a>
         </div>
       )}
     </header>

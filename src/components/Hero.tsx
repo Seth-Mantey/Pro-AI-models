@@ -6,14 +6,13 @@
 import { motion } from "motion/react";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import LucideIcon from "./LucideIcon";
-import { useAccessModal } from "../context/AccessModalContext";
+import { WHATSAPP_URL } from "../data";
 
 // We import the generated mockup image path
 // @ts-ignore
 import heroMockupImg from "../assets/images/hero_mockup_1784240127888.jpg";
 
 export default function Hero() {
-  const { openAccessModal } = useAccessModal();
 
   const scrollToFeatures = () => {
     const element = document.getElementById("what-you-get");
@@ -112,14 +111,16 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8"
             >
-              <button
-                onClick={openAccessModal}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black text-sm sm:text-base font-extrabold tracking-tight transition-all shadow-lg shadow-yellow-500/10 hover:shadow-yellow-500/25 active:scale-[0.98] group text-center shrink-0 select-none border border-yellow-400/50 cursor-pointer"
               >
                 <MessageCircle size={18} fill="currentColor" className="shrink-0" />
                 <span className="whitespace-nowrap">Get Access</span>
                 <ArrowRight size={16} className="shrink-0 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
 
               <button
                 onClick={scrollToFeatures}

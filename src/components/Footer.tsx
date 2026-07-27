@@ -6,13 +6,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle, ArrowRight } from "lucide-react";
-import { GHANA_WHATSAPP_URL } from "../data";
+import { WHATSAPP_URL } from "../data";
 import LucideIcon from "./LucideIcon";
-import { useAccessModal } from "../context/AccessModalContext";
 
 export default function Footer() {
   const [activeModal, setActiveModal] = useState<"privacy" | "terms" | "payment" | null>(null);
-  const { openAccessModal } = useAccessModal();
 
   const handleOpenModal = (policy: "privacy" | "terms" | "payment") => {
     setActiveModal(policy);
@@ -51,14 +49,16 @@ export default function Footer() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
-                onClick={openAccessModal}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-yellow-500 hover:bg-yellow-400 text-black text-sm sm:text-base font-extrabold tracking-tight transition-all shadow-lg shadow-yellow-500/10 hover:shadow-yellow-500/25 active:scale-[0.98] text-center shrink-0 select-none border border-yellow-400/50 cursor-pointer"
               >
                 <MessageCircle size={18} fill="currentColor" className="shrink-0" />
                 <span className="whitespace-nowrap">Get Access</span>
                 <ArrowRight size={16} className="shrink-0" />
-              </button>
+              </a>
             </div>
 
             <div className="flex items-center justify-center gap-6 mt-8 text-xs text-gray-500">
@@ -125,7 +125,7 @@ export default function Footer() {
               </p>
               <p className="flex items-center gap-2">
                 <span className="text-yellow-500 text-[10px]">💬</span>
-                <a href={GHANA_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   WhatsApp: +233 54 953 5810
                 </a>
               </p>
